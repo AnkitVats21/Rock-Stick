@@ -19,6 +19,7 @@ body{
     margin-right: 10vw;
     background-color: wheat;
     border: 2px solid gray;
+    box-shadow: 2px 2px 10px rgb(0, 0, 0);
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -63,7 +64,6 @@ body{
 
 .board{
     position: relative;
-    padding-top: 5vh;
     margin: 6vh 10vh;
     margin-left: 0;
     height: 88vh;
@@ -71,7 +71,7 @@ body{
     border: 2px solid black;
     box-shadow: 2px 2px 10px rgb(0, 0, 0);
     border-radius: 5px;
-    background: rgb(255, 255, 255);
+    background: whitesmoke;
 }
 
 .points{
@@ -81,4 +81,44 @@ body{
     width: 1rem;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.356);
+}
+
+.line,.lines,.linec{
+    position: absolute;
+    height:1vh;
+    border-radius: 10px;
+    background: rgba(133, 132, 132, 0.534);
+}
+
+.lines{
+    width: 16vw;
+}
+
+.linec{
+    width: 41vh;
+    transform: rotate(90deg);
+}
+
+#l221,#l222,#l621,#l622,#l421,#l422{
+    width: 54vh;
+    transform: rotate(50deg);
+}
+
+#l222,#l622,#l422{
+    transform: rotate(130deg);
+}
+
+#l321,#l322,#l521,#l522{
+    width: 41vh;
+    transform: rotate(50deg);
+}
+#l322,#l522{
+    transform: rotate(130deg);
+}
+#center{
+    width: 84vh;
+    transform: rotate(90deg);
+}
+#ls1,#ls7{
+    width: 9vw;
 }
