@@ -80,7 +80,8 @@ body{
     height: 1rem;
     width: 1rem;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.356);
+    background: rgba(177, 174, 174, 0.623);
+    z-index: 1;
 }
 
 .line,.lines,.linec{
