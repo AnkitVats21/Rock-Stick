@@ -11,6 +11,34 @@ var tokens=[
               [2,2,2]
         ];
 
+var points=document.querySelectorAll(".points");
+
+       for(let i=0;i<18;i++){
+        points[i].addEventListener("click",colorg(i));
+        }
+        function colorg(i){
+            points[i].style.backgroundColor="green";
+        }
+        
+        for(let i=19;i<37;i++){
+            points[i].addEventListener("click",colorr(i));
+        }
+        
+        function colorr(i){
+            points[i].style.backgroundColor="red";
+        }
+let id
+points.forEach(element=>{
+    element.addEventListener('click', function idSelector(){
+         id=element.id;
+         print(id);
+         element.style.backgroundColor="black";
+        })
+    })
+   
+function print(id){
+    console.log(id);       
+}
 var movesDict={
     'p00':[[0,2],[2,2]],
     'p01':[[2,2]],
@@ -50,30 +78,3 @@ var movesDict={
     'p81':[[6,2]],
     'p82':[[6,2],[8,0]]
 };
-
-function playerSelection(){}
-
-function tokenSelect(){}
-
-function checkMoves(){}
-
-function removeToken(){}
-
-
-
-//assigning colors to the each points 
-var points=document.querySelectorAll(".points");
-for(let i=0;i<18;i++){
-points[i].addEventListener("click",colorg(i));
-}
-function colorg(i){
-    points[i].style.backgroundColor="green";
-}
-
-for(let i=19;i<37;i++){
-    points[i].addEventListener("click",colorr(i));
-}
-
-function colorr(i){
-    points[i].style.backgroundColor="red";
-}
