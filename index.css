@@ -1,0 +1,416 @@
+.mediaViewInfo {
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920__1;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: width;
+	--web-scale-on-resize: true;
+	--web-scale-on-double-click: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Web_1920__1;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Web_1920__1 {
+	position: absolute;
+	width: 100%;
+	height: 2491px;
+	background-color: rgba(25,42,86,1);
+	overflow: hidden;
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920__1;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: width;
+	--web-scale-on-resize: true;
+	--web-scale-on-double-click: true;
+	--web-enable-deep-linking: true;
+}
+#Rock_Stick {
+	left: 719px;
+	top: 23px;
+	position: absolute;
+	overflow: visible;
+	width: 484px;
+	white-space: nowrap;
+	text-align: right;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 109px;
+	color: rgba(255,255,255,1);
+}
+#About_the_Game {
+	left: 72px;
+	top: 273px;
+	position: absolute;
+	overflow: visible;
+	width: 336px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 46px;
+	color: rgba(0,220,255,1);
+}
+#Designed_And_Developed_by_Anki {
+	left: 478px;
+	top: 2337px;
+	position: absolute;
+	overflow: visible;
+	width: 929px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 31px;
+	color: rgba(255,117,117,1);
+}
+#Group_3 {
+	position: absolute;
+	width: 1920px;
+	height: 729px;
+	left: 0px;
+	top: 1497px;
+	overflow: visible;
+}
+#Rectangle_2 {
+	fill: rgba(73,190,233,1);
+	stroke: rgba(157,84,84,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_2 {
+	position: absolute;
+	overflow: visible;
+	width: 1920px;
+	height: 729px;
+	left: 0px;
+	top: 0px;
+}
+#Path_1 {
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_1 {
+	filter: drop-shadow(25px 25px 0px rgba(255, 0, 0, 0.161));
+	overflow: visible;
+	position: absolute;
+	width: 515px;
+	height: 604px;
+	left: 161px;
+	top: 75px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_2 {
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_2 {
+	filter: drop-shadow(25px 25px 0px rgba(255, 0, 0, 0.161));
+	overflow: visible;
+	position: absolute;
+	width: 515px;
+	height: 604px;
+	left: 739px;
+	top: 75px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_3 {
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_3 {
+	filter: drop-shadow(25px 25px 0px rgba(255, 0, 0, 0.161));
+	overflow: visible;
+	position: absolute;
+	width: 515px;
+	height: 604px;
+	left: 1292px;
+	top: 75px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#High_Score {
+	left: 277px;
+	top: 164px;
+	position: absolute;
+	overflow: visible;
+	width: 253px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 49px;
+	color: rgba(75,111,255,1);
+}
+#High_Score_q {
+	left: 853px;
+	top: 161px;
+	position: absolute;
+	overflow: visible;
+	width: 263px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 51px;
+	color: rgba(75,111,255,1);
+}
+#High_Score_r {
+	left: 1411px;
+	top: 161px;
+	position: absolute;
+	overflow: visible;
+	width: 253px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 49px;
+	color: rgba(75,111,255,1);
+}
+#Ankit_Mishra_22_Points {
+	left: 855px;
+	top: 309px;
+	position: absolute;
+	overflow: visible;
+	width: 261px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 43px;
+	color: rgba(93,100,126,1);
+}
+#Sarthak_Agarwal_22_Points {
+	left: 235px;
+	top: 309px;
+	position: absolute;
+	overflow: visible;
+	width: 337px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 43px;
+	color: rgba(93,100,126,1);
+}
+#Ankit_Mishra_22_Points_u {
+	left: 1410px;
+	top: 312px;
+	position: absolute;
+	overflow: visible;
+	width: 261px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 43px;
+	color: rgba(93,100,126,1);
+}
+#Icon_awesome-chess-king {
+	fill: rgba(120,220,147,1);
+}
+.Icon_awesome-chess-king {
+	overflow: visible;
+	position: absolute;
+	width: 90.47px;
+	height: 90.466px;
+	left: 354px;
+	top: 503px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Icon_awesome-chess-king_w {
+	fill: rgba(120,220,147,1);
+}
+.Icon_awesome-chess-king_w {
+	overflow: visible;
+	position: absolute;
+	width: 90.47px;
+	height: 90.466px;
+	left: 1495px;
+	top: 503px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Icon_awesome-chess-queen {
+	fill: rgba(165,223,98,1);
+}
+.Icon_awesome-chess-queen {
+	overflow: visible;
+	position: absolute;
+	width: 90.47px;
+	height: 90.47px;
+	left: 939px;
+	top: 503px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Rectangle_1 {
+	fill: rgba(73,190,233,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_1 {
+	position: absolute;
+	overflow: visible;
+	width: 252px;
+	height: 87px;
+	left: 834px;
+	top: 1339px;
+}
+#Sixteen_Soldiers_is_a_two-play {
+	left: 72px;
+	top: 922px;
+	position: absolute;
+	overflow: visible;
+	width: 1542px;
+	height: 324px;
+	text-align: left;
+	font-family: Rockwell;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+}
+#Rules_Of_the_Game {
+	left: 72px;
+	top: 814px;
+	position: absolute;
+	overflow: visible;
+	width: 377px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Rockwell;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 44px;
+	color: rgba(0,220,255,1);
+}
+#Start_Game {
+	left: 866px;
+	top: 1359px;
+	position: absolute;
+	overflow: visible;
+	width: 190px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36px;
+	color: rgba(255,255,255,1);
+}
+#Ellipse_2 {
+	fill: rgba(246,92,92,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_2 {
+	width: 1108px;
+	height: 1567px;
+	position: absolute;
+	overflow: visible;
+	transform: matrix(1,0,0,1,1691,-858) rotate(-80deg);
+	transform-origin: center;
+}
+#Sixteen_Soldiers_is_a_two-play_ {
+	left: 72px;
+	top: 407px;
+	position: absolute;
+	overflow: visible;
+	width: 1542px;
+	height: 324px;
+	text-align: left;
+	font-family: Rockwell;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+}
+#Group_4 {
+	position: fixed;
+	width: 252px;
+	height: 87px;
+	left: -104px;
+	top: 52px;
+	overflow: visible;
+}
+#Group_2 {
+	position: absolute;
+	width: 252px;
+	height: 87px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Rectangle_1_ {
+	fill: rgba(73,190,233,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_1_ {
+	position: absolute;
+	overflow: visible;
+	width: 252px;
+	height: 87px;
+	left: 0px;
+	top: 0px;
+}
+#Ellipse_1 {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 3px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Ellipse_1 {
+	position: absolute;
+	overflow: visible;
+	width: 50px;
+	height: 50px;
+	left: 148px;
+	top: 19px;
+}
