@@ -7,26 +7,27 @@
 </head>
 <body>
     <div class="info">
+        <h1>Dashboard</h1>
         <div class="name">
             <h2>Rock Stick</h2>
             <hr>
             <p>Designed and Develpoed by Ankit & Sarthak</p>
         </div>
-        <div class="status">
-            <div class="player1">
+        <div  class="status">
+            <div id="player1" class="player1">
                 <h3>Player 1</h3>
-                <p class="points1"></p>
+                <p class="points1">0</p>
             </div>
-            <div class="player2">
+            <div id="player2" class="player2">
                 <h3>Player 2</h3>
-                <p class="points2"></p>
+                <p class="points2">0</p>
             </div>
         </div>
     </div>
 
     <div class="board">
-        <div class="points" id="p00" style="top: 2vh; left: 12vw;"></div>
-        <div class="points" id="p01" style="top: 2vh; left: 20vw;"></div>
+        <div class="points" onclick="getId(this)" id="p00" style="top: 2vh; left: 12vw;"></div>
+        <div class="points" onclick="getId(this)" id="p01" style="top: 2vh; left: 20vw;"></div>
         <div class="points" id="p02" style="top: 2vh; left: 28vw;"></div>
         <div class="points" id="p10" style="top: 12vh; left: 16vw;"></div>
         <div class="points" id="p11" style="top: 12vh; left: 20vw;"></div>
@@ -83,6 +84,7 @@
         <div class="linec" id="c4" style="top: 43vh; left: 15vw;"></div>
         <div class="linec" id="c5" style="top: 43vh; left: 19vw;"></div>
     </div>
+    <button onclick="changePlayer(player1)">startgame</button>
     <script src="script.js"></script>
 </body>
 </html>
