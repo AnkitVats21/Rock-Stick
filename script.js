@@ -1,4 +1,4 @@
-//list form of each tokens
+/******************2D ARRAY OF BEADS*************************/
 var beads=[
               [1,1,1],
               [1,1,1],
@@ -13,7 +13,7 @@ var beads=[
 
 var player1=true;
 
-/**************OBJECT OF POSSIBLE GENERAL MOVES FOR EACH POINT**********************/
+/**************DICTIONARY OF POSSIBLE GENERAL MOVES FOR EACH POINT**********************/
 
 var normalMoves={
     'p00':['p01','p10'],
@@ -97,103 +97,14 @@ var pointMoves={
     'p82':['p62','p80']
 };
 
-var points=document.querySelectorAll(".points");
 let usr=false;
 let usr2=false;
 let id,id2;
 let listHlt;
-
-function passId(val){
-    id=val;
-    
-    if(player1){
-    let list=checkDesiredPoints(0);
-    let listForShadow=playermovablebeads(1);
-        makeShadow(listForShadow);//shadow giving function
-        console.log(listForShadow);
-        playerShadow(1);
-        atrributeAdder(listForShadow);
-        if(usr){
-        usr=false;
-        removeShadow(listForShadow);//remove shadow
-        atrributeRemover(listForShadow);
-        //console.log(id,"inside usr if");
-        //driverFunction(id,1,listForShadow,list,beads);
-        listHlt=movableBeads(id,list);//list of highlightable points 
-        console.log(listHlt);
-        highLight(listHlt);//highlighting movable points
-        atrributeAdder2(listHlt);
-        //player1=false;
-        
-        //playerShadow(2);//player shadow changer
-        //changePlayer();            
-        }
-    }
-    else{
-        if(usr){
-            usr=false;
-            let list=checkDesiredPoints(0);
-            let listForShadow=playermovablebeads(2);
-            removeShadow(listForShadow);
-            atrributeRemover(listForShadow);
-        //console.log(id);
-        listHlt=movableBeads(id,list);//list of highlightable points 
-    highLight(listHlt);//highlighting movable points
-    atrributeAdder2(listHlt);
-        }
-    }
-}
-function passId2(val){
-    id2=val;
-    //let listHlt=playermovablebeads(id,list);//list of highlightable points 
-    if(usr2){
-        usr2=false;
-             let moveType=checkMoveType(id,id2);
-             //console.log(moveType);//boolean return type function true for normal move false for point move
-             if(moveType){
-                let id3=null;
-                 beadsUpdate(id,id2,id3,moveType);
-                 
-             }
-             else{
-                 let id3= playerbetween(id,id2);// search for removed bead
-                 beadsUpdate(id,id2,id3,moveType);
-             }
-            //console.log(beads);
-            beadChange();
-            removeHighlight(listHlt);
-            //updateScore(player);  //update the score of the player *******tbm
-        }
-        if(player1){
-            //console.log("inside player change if");
-            player1=false;
-            removeplayerShadow(1);
-            playerShadow(2);
-            let list=checkDesiredPoints(0);
-            let listForShadow=playermovablebeads(2);
-            console.log(listForShadow);
-            makeShadow(listForShadow);
-            atrributeAdder(listForShadow);
-        }
-        
-        else{
-            //console.log("inside else")
-            player1=true;
-            removeplayerShadow(2);
-            playerShadow(1);
-            let list=checkDesiredPoints(0);
-            let listForShadow=playermovablebeads(1);
-            console.log(listForShadow);
-            makeShadow(listForShadow);
-            atrributeAdder(listForShadow);
-        }
-        
-        
-}
-
-//****************PLAYER CHANGE FUNCTION********************** */
 beadChange();
-function changePlayer(player1){
+
+/*******************WHEN A USER CLICKS START BUTTON function below will run first and only one time*******/
+function start(player1){
 
     if(player1){
         let listForShadow=playermovablebeads(1);
@@ -203,12 +114,82 @@ function changePlayer(player1){
     }
 }
 
-/******************DRIVER FUNCTION**************************/
-/*****************************************************************/
+/*****************BEAD SELECTED BY A USE WILL RETURN AN ID AND THAT ID IS PASSED IN THE FUNCTION BELOW******/
+function passId(val){
+    id=val;
+    
+    if(player1){
+        let list=checkDesiredPoints(0);
+        let listForShadow=playermovablebeads(1);
+        if(usr){
+        usr=false;
+        removeShadow(listForShadow);//remove shadow
+        atrributeRemover(listForShadow);
+        listHlt=movablePoints(id,list);//list of highlightable points 
+        console.log(listHlt);
+        highLight(listHlt);//highlighting movable points
+        atrributeAdder2(listHlt);         
+        }
+    }
+    else{
+        if(usr){
+            usr=false;
+            let list=checkDesiredPoints(0);
+            let listForShadow=playermovablebeads(2);
+            removeShadow(listForShadow);
+            atrributeRemover(listForShadow);
+            listHlt=movablePoints(id,list);//list of highlightable points 
+            highLight(listHlt);//highlighting movable points
+            atrributeAdder2(listHlt);
+        }
+    }
+}
+
+/*****************ON CLICKING THE HIGHLIGHTED POINT'S ITS ID WILL PASSED IN THE FUNCTION BELOW********/
+
+function passId2(val){
+    id2=val;
+    //let listHlt=playermovablebeads(id,list);//list of highlightable points 
+    if(usr2){
+        usr2=false;
+             let moveType=checkMoveType(id,id2); //boolean return type function true for normal move false for point move
+             if(moveType){
+                let id3=null;
+                 beadsUpdate(id,id2,id3,moveType);
+             }
+             else{
+                 let id3= playerbetween(id,id2);// search for removed bead
+                 beadsUpdate(id,id2,id3,moveType);
+             }
+            beadChange();
+            removeHighlight(listHlt);
+            //updateScore(player);  //update the score of the player *******tbm
+        }
+        if(player1){
+            player1=false;
+            removeplayerShadow(1);
+            playerShadow(2);
+            let list=checkDesiredPoints(0);
+            let listForShadow=playermovablebeads(2);
+            makeShadow(listForShadow);
+            atrributeAdder(listForShadow);
+        }
+        
+        else{
+            player1=true;
+            removeplayerShadow(2);
+            playerShadow(1);
+            let list=checkDesiredPoints(0);
+            let listForShadow=playermovablebeads(1);
+            makeShadow(listForShadow);
+            atrributeAdder(listForShadow);
+        }
+        
+        
+}
 
 
 //function makes an array of coordinate in form of string of a desired value from the array of beads
-//defined in begining
 function checkDesiredPoints(p){
     let lst=[];
     for(let i=0;i<9;i++){
@@ -220,8 +201,7 @@ function checkDesiredPoints(p){
     return lst;
 }
 
-///player possible movable point list generator (yet ids are repeated here)
-// here list is the list of 0 value cordinates
+/**********player possible movable point list generator (yet ids are repeated here) SOME FLAWS ARE THERE IN THE FUNCTION BELOW*/
 function playermovablebeads(j){
     let lst=[];
     let list=checkDesiredPoints(0);
@@ -233,10 +213,10 @@ function playermovablebeads(j){
                 if(list.indexOf(temp[j])!=-1)
                 lst.push(listofplayerpos[i]);
             }
+
             //check if there is any oppenents bead is in between that that bead and movable point
+
             let temp2=pointMoves[listofplayerpos[i]];
-            //console.log("temp",temp);
-            //temp contains all the movable point of of particular bead at that instant
             for(let k=0;k<temp2.length;k++){
                 if(list.indexOf(temp2[k])!=-1){
                     if(playerbetween(list[list.indexOf(temp2[k])],temp2[k])!='')
@@ -244,21 +224,18 @@ function playermovablebeads(j){
                 }
             }
         }      
-        //console.log(lst);
         return lst;
 }
 
-//testing
 
-
-//when you will select a bead then this function will return an array of coordinates
-//where particular bead can be moved
-function movableBeads(id,list){
-    //console.log(id,"inside movable beads");
+/******** STILL HAVE SOME FLAWS IN IT 
+when you will select a bead then this function will return an array of coordinates
+where particular bead can be moved *******/
+function movablePoints(id,list){
     let temp=normalMoves[id],movelst=[];
     temp2=pointMoves[id];
     for(let k=0;k<temp.length;k++){
-        if(list.indexOf(temp[k])!=-1){               //*****stil there's an issue of coordinate repitation********/
+        if(list.indexOf(temp[k])!=-1){               
             movelst.push(temp[k]);
                 }            
     }
@@ -269,7 +246,6 @@ function movableBeads(id,list){
         }
         }
     }
-    //console.log(movelst);
     return movelst;
 }
 
@@ -281,27 +257,46 @@ function checkMoveType(id1,id2){
     return true;
     return false;
 }
-/**********************************************/
+/**************************************************************
+no flaw in the function below, parameters decide their results
 
-//beads array update function when the opponents plays a point wala chance or the normal one haaahaaa
-
+    beadsUpdate()           update the beads value {0 or 1 or 2}
+    beadChange()            changes the color from the beads 2D array 
+                                0 -no color
+                                1 -green
+                                2 -red
+    playerShadow()          makes a shadows of the player in the dashboard
+    removeplayerShadow()    removes a shadows of the player in the dashboard
+    makeShadow()            highlights the players movable beads
+    removeShadow()          removes highlights players movable beads
+    highLight()             highlights the movable points when user clicks on the beads
+    removHighlight()        removes highlight from the above points
+    getId()/getId2()        return the id and simultaneously calls the respective passId() functions 
+                            that drives the programs
+    atrributeAdder1()&2()   adds onclick atrribute to beads passed in them using parameter
+    atrributeRemover()      removes the onclick atrribute from respective beads
+    checkMoveType()         return true if normal moves else false
+    passId() & passId2()    these functions drives the whole program
+        ##################THESE FUNCTIONS HAVE SOME FLAWS#####################
+    movablePoints()         returns an array of moves on clicking a bead when a players chance comes
+    playermovableBeads()    returns an array of movable beads of a player
+    playerbetween()         checks whether a bead in between is two beads is opponents bead or same
+                            bead returns coordinate if opponents bead in between else returns an empty string   
+***************************************************************/
 function beadsUpdate(id1,id2,id3,movetype){
-    //console.log("inside beadsupdate",movetype,id1,id2,id3,beads);
     let vala=beads[id1[1]][id1[2]];
-    //console.log(vala);
      if(movetype==true){
-         //console.log("inside if of move type");
          beads[id1[1]][id1[2]]=0;
          beads[id2[1]][id2[2]]=vala;
      }
      else{
         beads[id1[1]][id1[2]]=0;
-        beads[id2[1]][id2[2]]=0;
-        beads[id3[1]][id3[2]]=vala;
+        beads[id3[1]][id3[2]]=0;
+        beads[id2[1]][id2[2]]=vala;
      }
     
 }
-
+/********************************************/
 //beads color updating function
 
 function beadChange(){
@@ -374,19 +369,17 @@ function highLight(hlist){
     for(let i=0;i<hlist.length;i++){
         let element=document.getElementById(hlist[i]);
         element.style.backgroundColor="rgba(68, 118, 255, 0.788)";
-        element.style.setProperty("box-shadow","5px 5px 20px cyan");
+        //element.style.setProperty("box-shadow","5px 5px 20px cyan");
 }
 }
 
 function removeHighlight(hlist){
-    //console.log("iside highlight function",hlist);
     for(let i=0;i<hlist.length;i++){
         let element=document.getElementById(hlist[i]);
-        element.style.removeProperty("box-shadow");
+        element.style.removeProperty("background-color");
 }
 }
 function playerbetween(id1,id2){
-        //console.log(beads);
         let row1=parseInt(id1[1]),row2=parseInt(id2[1]),col1=parseInt(id1[2]),col2=parseInt(id2[2]),bead=beads[parseInt(id1[1])][parseInt(id1[2])];
         let r1=row1-1,r2=row1+1,c1=col1-1,c2=col1+1,c3=col2;
         if(row2>=2&&row2<=6){
@@ -415,7 +408,6 @@ function playerbetween(id1,id2){
                 
                 }
                if(col1==col2){//same column
-                //console.log("same column");
                     if(row1>row2 && beads[row1-1][col2]!=bead)
                        return "p"+r1+c3;
                     if(row1<row2 && beads[row1+1][col2]!=bead)
@@ -524,7 +516,6 @@ function playerbetween(id1,id2){
 
 function getId(idg,id){
     usr=true;
-    //console.log(id.id);
     passId(idg.id,id);
     return idg.id;
 }
