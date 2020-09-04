@@ -1,0 +1,427 @@
+
+:root {
+	--web-view-ids: Checking_As_Html;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Checking_As_Html {
+	position: absolute;
+	width: 100%;
+	height: 2900px;
+	background-color: rgba(25,42,86,1);
+	overflow: hidden;
+
+}
+#Ellipse_3 {
+	fill: rgba(246,92,92,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 10px;
+
+}
+.Ellipse_3 {
+	width: 1108px;
+	height: 1567px;
+	position: absolute;
+	overflow: hideen;
+	transform: matrix(1,0,0,1,1650.0001,-974) rotate(-80deg);
+	transform-origin: center;
+}
+#btn-ellipse {
+	fill: rgba(246,92,92,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+}
+.btn-ellipse{
+	width: 1108px;
+	height: 1567px;
+	position: absolute;
+	overflow: visible;
+	transform: matrix(1,0,0,1,1842.0001,1300.0002) rotate(-80deg);
+
+}
+#ID16_Soldires {
+	left: 683px;
+	top: 80px;
+	position: absolute;
+	overflow: visible;
+	width: 529px;
+	height: 145px;
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 109px;
+	color: rgba(73,190,233,1);
+}
+#About_the_Game {
+	left: 176px;
+	top: 335px;
+	position: absolute;
+	overflow: visible;
+	width: 336px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 46px;
+	color: rgba(0,220,255,1);
+}
+#Sixteen_Soldiers_is_a_two-play {
+	left: 176px;
+	top: 476px;
+	position: absolute;
+	overflow: visible;
+	width: 1542px;
+	height: 407px;
+	line-height: 35px;
+	margin-top: -5px;
+	text-align: left;
+	font-family: Lucida Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+}
+#Rules_Of_the_Game {
+	left: 186px;
+	top: 1080px;
+	position: absolute;
+	overflow: visible;
+	width: 377px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Rockwell;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 44px;
+	color: rgba(0,220,255,1);
+}
+#Sixteen_Soldiers_is_a_two-play_n {
+	left: 186px;
+	top: 1215px;
+	position: absolute;
+	overflow: visible;
+	width: 1542px;
+	height: 406px;
+	line-height: 35px;
+	margin-top: -5px;
+	text-align: left;
+	font-family: Lucida Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+}
+#Group_6 {
+	position: absolute;
+	width: 252px;
+	height: 87px;
+	left: 834px;
+	top: 1756px;
+	overflow: hidden;
+}
+#Rectangle_1 {
+	fill: rgba(73,190,233,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_1 {
+	position: absolute;
+	overflow: visible;
+	width: 252px;
+	height: 87px;
+	left: 0px;
+	top: 0px;
+}
+#Start_Game {
+	left: 32px;
+	top: 20px;
+	position: absolute;
+	overflow: visible;
+	width: 190px;
+	
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36px;
+	color: rgba(255,255,255,1);
+}
+#Group_7 {
+	position: fixed;
+	width: 252px;
+	height: 87px;
+	left: -99px;
+	top: 138px;
+	overflow: visible;
+}
+#Group_2 {
+	position: absolute;
+	width: 252px;
+	height: 87px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Rectangle_1_t {
+	fill: rgba(73,190,233,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_1_t {
+	position: absolute;
+	overflow: hidden;
+	width: 252px;
+	height: 87px;
+	left: 0px;
+	top: 0px;
+}
+#Ellipse_1 {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+
+}
+.Ellipse_1 {
+	position: absolute;
+	overflow: visible;
+	width: 50px;
+	height: 50px;
+	left: 148px;
+	top: 19px;
+}
+#Rectangle_2 {
+	fill: rgba(73,190,233,1);
+	stroke: rgba(157,84,84,1);
+
+}
+.Rectangle_2 {
+	position: absolute;
+	overflow: visible;
+	width: 1920px;
+	height: 729px;
+	left: 0px;
+	top: 1921px;
+}
+#Group_9 {
+	position: absolute;
+	width: 490px;
+	height: 579px;
+	left: 103px;
+	top: 1981px;
+	overflow: visible;
+}
+
+.Path_1 {
+	fill: rgba(255,255,255,1);
+	filter: drop-shadow(25px 25px 10px rgba(255, 0, 0, 0.161));
+	overflow: visible;
+	position: absolute;
+	width: 515px;
+	height: 604px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#High_Score {
+	left: 116px;
+	top: 89px;
+	position: relative;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 49px;
+	color: rgba(75,111,255,1);
+}
+#Sarthak_Agarwal_22_Points {
+	left: 74px;
+	top: 234px;
+	position: absolute;
+	overflow: visible;
+	width: 337px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 43px;
+	color: rgba(93,100,126,1);
+}
+#Icon_awesome-chess-king {
+	fill: rgba(120,220,147,1);
+}
+.Icon_awesome-chess-king {
+	overflow: visible;
+	position: absolute;
+	width: 90.47px;
+	height: 90.466px;
+	left: 193px;
+	top: 428px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Group_8 {
+	position: relative;
+	width: 510px;
+	height: 579px;
+	left: 712px;
+	top: 1981px;
+	overflow: visible;
+}
+#Path_1_ {
+	fill: rgba(255,255,255,1);
+
+}
+.Path_1_ {
+	filter: drop-shadow(25px 25px 10px rgba(255, 0, 0, 0.161));
+	overflow: visible;
+	position: absolute;
+	width: 515px;
+	height: 604px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#High_Score_ {
+	left: 116px;
+	top: 89px;
+	position: absolute;
+	overflow: visible;
+	width: 253px;
+	
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 49px;
+	color: rgba(75,111,255,1);
+}
+#Sarthak_Agarwal_22_Points_ {
+	left: 74px;
+	top: 234px;
+	position: absolute;
+	overflow: visible;
+	width: 337px;
+	
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 43px;
+	color: rgba(93,100,126,1);
+}
+#Icon_awesome-chess-king_ {
+	fill: rgba(120,220,147,1);
+}
+.Icon_awesome-chess-king_ {
+	overflow: visible;
+	position: relative;
+	width: 90.47px;
+	height: 90.466px;
+	left: 46%;
+	top: 428px;
+
+}
+#Group_10 {
+	position: absolute;
+	width: 490px;
+	height: 579px;
+	left: 1295px;
+	top: 1981px;
+	overflow: visible;
+}
+#Path_1_ba {
+	fill: rgba(255,255,255,1);
+
+}
+.Path_1_ba {
+	filter: drop-shadow(25px 25px 10px rgba(255, 0, 0, 0.161));
+	overflow: hidden;
+	position: absolute;
+	width: 515px;
+	height: 604px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#High_Score_ba {
+	left: 116px;
+	top: 89px;
+	position: absolute;
+	overflow: visible;
+	width: 253px;
+
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 49px;
+	color: rgba(75,111,255,1);
+}
+#Sarthak_Agarwal_22_Points_ba {
+	left: 74px;
+	top: 234px;
+	position: absolute;
+	overflow: visible;
+	width: 337px;
+
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 43px;
+	color: rgba(93,100,126,1);
+}
+#Icon_awesome-chess-king_ba {
+	fill: rgba(120,220,147,1);
+}
+.Icon_awesome-chess-king_ba {
+	overflow: visible;
+	position: absolute;
+	width: 90.47px;
+	height: 90.466px;
+	left: 193px;
+	top: 428px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Designed_And_Developed_by_Anki {
+	left: 496px;
+	top: 2745px;
+	position: absolute;
+	overflow: visible;
+	width: 929px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 31px;
+	color: rgba(255,117,117,1);
+}
+#Line_1 {
+	opacity: 0.33;
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+}
+ .Line_1 { 
+	 overflow: visible;
+	position: absolute;
+	width: 1920.001px;
+	height: 3px;
+	left: 0.5px;
+	top: 972.5px;
+	transform: matrix(1,0,0,1,0,0);
+} 
