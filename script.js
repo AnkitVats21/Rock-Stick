@@ -133,7 +133,15 @@ let listHlt;
 
 /*******************WHEN A USER CLICKS START BUTTON function below will run first and only one time*******/
 function start(player1){
+var person1 = prompt("Please enter Player 1 Name", "Ankit");
+  if (person1 != null) {
+    document.getElementById("p1").innerHTML =person1;
+  }
 
+  var person2 = prompt("Please enter Player 2 Name", "Sarthak");
+  if (person2 != null) {
+    document.getElementById("p2").innerHTML =person2;
+  }
     if(player1){
         beadChange();
         let listForShadow=playermovablebeads(1);
