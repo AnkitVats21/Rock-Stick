@@ -1,12 +1,17 @@
-
-
+canvas {
+    position: absolute;
+    z-index: -1;
+    background: url(background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 *{
     box-sizing: border-box;
 }
 body{
     position: relative;
-    background: url(background.jpg);
-    background-size: cover;
+    /*background: url(background.jpg);
+    background-size: cover;*/
     margin: 0;
     padding: 0;
     display: flex;
@@ -20,8 +25,8 @@ body{
     width: 40vw;
     margin: 10vh;
     margin-right: 10vw;
-    background-color: wheat;
-    color: rgb(85, 72, 41);
+    background: radial-gradient(circle at 125px 125px, rgba(43, 17, 85, 0.288), rgba(202, 202, 202, 0.274));
+    color: rgb(216, 209, 192);
     border: 2px solid gray;
     box-shadow: 2px 2px 10px rgb(0, 0, 0);
     border-radius: 5px;
@@ -31,6 +36,7 @@ body{
 .name{
     position: relative;
     padding: 1rem;
+    color: rgb(29, 28, 28);
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
 }
@@ -80,6 +86,9 @@ body{
     background-size: cover;
 }
 
+div{
+    transition: all 0.8s ease-in;
+}
 
 .points{
     position: absolute;
@@ -90,6 +99,7 @@ body{
     filter: drop-shadow(5px 10px 10px rgb(0, 0, 0));
     z-index: 1;
     overflow: hidden;
+    transition: all 0.5s ease-in;
 }
 
 .line,.lines,.linec{
@@ -133,13 +143,22 @@ body{
     width: 9vw;
 }
 
-div img{
-    filter: drop-shadow(5px 3px 2px rgb(0, 0, 0));
+
+p{
+    margin-top: -2vh;
 }
 
-.highlight{
-    box-shadow:
-        0 0 6px 3px #fff,  /* inner white */
-        0 0 10px 6px rgba(68, 118, 255, 0.788), /* middle magenta */
-        0 0 10px 7px #0ff; /* outer cyan */
+button{
+    position: absolute;
+    left: 16%;
+    bottom: 12%;
+    padding: 2vh 5vw;
+    font-size: 20px;
+    background: radial-gradient(circle at 125px 125px, rgb(8, 255, 255), rgb(7, 126, 238));
+    border-radius: 5px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }

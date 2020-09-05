@@ -6,6 +6,9 @@
     <title>Rock Stick</title>
 </head>
 <body>
+    <canvas>
+    </canvas>
+    <script src="./canvas.js"></script>
     <div class="info">
         <h1>Dashboard</h1>
         <div class="name">
@@ -16,11 +19,11 @@
         <div  class="status">
             <div id="player1" class="player1">
                 <h3>Player 1</h3>
-                <p class="points1">0</p>
+                <p id="points1"></p>
             </div>
             <div id="player2" class="player2">
                 <h3>Player 2</h3>
-                <p class="points2">0</p>
+                <p id="points2"></p>
             </div>
         </div>
     </div>
@@ -84,7 +87,7 @@
         <div class="linec" id="c4" style="top: 43vh; left: 15vw;"></div>
         <div class="linec" id="c5" style="top: 43vh; left: 19vw;"></div>
     </div>
-    <button onclick="start(player1)">startgame</button>
+    <button onclick="start(player1)">START</button>
     <script src="script.js"></script>
 </body>
 </html>

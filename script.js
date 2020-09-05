@@ -44,7 +44,7 @@ var normalMoves={
     'p54':['p44','p53','p64'],
     'p60':['p50','p51','p61'],
     'p61':['p51','p60','p62'],
-    'p62':['p51','p62','p53','p61','p63','p70','p71','p72'],
+    'p62':['p51','p52','p53','p61','p63','p70','p71','p72'],
     'p63':['p53','p62','p64'],
     'p64':['p53','p54','p63'],
     'p70':['p62','p71','p80'],
@@ -101,12 +101,12 @@ let usr=false;
 let usr2=false;
 let id,id2;
 let listHlt;
-beadChange();
 
 /*******************WHEN A USER CLICKS START BUTTON function below will run first and only one time*******/
 function start(player1){
 
     if(player1){
+        beadChange();
         let listForShadow=playermovablebeads(1);
         makeShadow(listForShadow);//shadow giving function
         playerShadow(1);
@@ -119,14 +119,13 @@ function passId(val){
     id=val;
     
     if(player1){
-        let list=checkDesiredPoints(0);
         let listForShadow=playermovablebeads(1);
         if(usr){
         usr=false;
         removeShadow(listForShadow);//remove shadow
         atrributeRemover(listForShadow);
-        listHlt=movablePoints(id,list);//list of highlightable points 
-        console.log(listHlt);
+        listHlt=movablePoints(id);//list of highlightable points 
+        //console.log(listHlt);
         highLight(listHlt);//highlighting movable points
         atrributeAdder2(listHlt);         
         }
@@ -134,11 +133,10 @@ function passId(val){
     else{
         if(usr){
             usr=false;
-            let list=checkDesiredPoints(0);
             let listForShadow=playermovablebeads(2);
             removeShadow(listForShadow);
             atrributeRemover(listForShadow);
-            listHlt=movablePoints(id,list);//list of highlightable points 
+            listHlt=movablePoints(id);//list of highlightable points 
             highLight(listHlt);//highlighting movable points
             atrributeAdder2(listHlt);
         }
@@ -149,8 +147,10 @@ function passId(val){
 
 function passId2(val){
     id2=val;
+    let score;
     //let listHlt=playermovablebeads(id,list);//list of highlightable points 
     if(usr2){
+        atrributeRemover(movablePoints(id));
         usr2=false;
              let moveType=checkMoveType(id,id2); //boolean return type function true for normal move false for point move
              if(moveType){
@@ -159,20 +159,22 @@ function passId2(val){
              }
              else{
                  let id3= playerbetween(id,id2);// search for removed bead
-                 beadsUpdate(id,id2,id3,moveType);
+                 //beadsUpdate(id,id2,id3,moveType);
+                 score=beadsUpdate(id,id2,id3,moveType);Score(score);
+                 //console.log(score);
              }
             beadChange();
             removeHighlight(listHlt);
             //updateScore(player);  //update the score of the player *******tbm
         }
         if(player1){
-            player1=false;
             removeplayerShadow(1);
             playerShadow(2);
             let list=checkDesiredPoints(0);
             let listForShadow=playermovablebeads(2);
             makeShadow(listForShadow);
             atrributeAdder(listForShadow);
+            player1=false;
         }
         
         else{
@@ -187,7 +189,22 @@ function passId2(val){
         
         
 }
+var a=0,b=0;
+function Score(s){
+    if(s==1){
+      updateScore(a+=1,2)
+    }
+    
+    if(s==2)
+    updateScore(b+=1,1)
+}
 
+function updateScore(s,p){
+    if(p==1)
+    document.getElementById("points1").innerHTML=s;
+    else
+    document.getElementById("points2").innerHTML=s;
+}
 
 //function makes an array of coordinate in form of string of a desired value from the array of beads
 function checkDesiredPoints(p){
@@ -205,22 +222,28 @@ function checkDesiredPoints(p){
 function playermovablebeads(j){
     let lst=[];
     let list=checkDesiredPoints(0);
-    //console.log(list);
+    //console.log(beads);
     let listofplayerpos=checkDesiredPoints(j);//array in form of 'pij'
+    //console.log(listofplayerpos);
         for(let i=0;i<listofplayerpos.length;i++){
             let temp=normalMoves[listofplayerpos[i]];
             for(let j=0;j<temp.length;j++){
-                if(list.indexOf(temp[j])!=-1)
+                if(list.indexOf(temp[j])!=-1){
                 lst.push(listofplayerpos[i]);
+                
+                }
             }
-
+            
             //check if there is any oppenents bead is in between that that bead and movable point
 
             let temp2=pointMoves[listofplayerpos[i]];
             for(let k=0;k<temp2.length;k++){
                 if(list.indexOf(temp2[k])!=-1){
-                    if(playerbetween(list[list.indexOf(temp2[k])],temp2[k])!='')
+                    //console.log(temp2[k],playerbetween(listofplayerpos[i],temp2[k]));
+                    if(playerbetween(listofplayerpos[i],temp2[k])!=''){
+                        //console.log("not coming into this",temp2[k],i,k);
                     lst.push(listofplayerpos[i]);
+                    }
                 }
             }
         }      
@@ -228,12 +251,13 @@ function playermovablebeads(j){
 }
 
 
-/******** STILL HAVE SOME FLAWS IN IT 
+/********
 when you will select a bead then this function will return an array of coordinates
 where particular bead can be moved *******/
-function movablePoints(id,list){
+function movablePoints(id){
+    let list=checkDesiredPoints(0);
     let temp=normalMoves[id],movelst=[];
-    temp2=pointMoves[id];
+    let temp2=pointMoves[id];
     for(let k=0;k<temp.length;k++){
         if(list.indexOf(temp[k])!=-1){               
             movelst.push(temp[k]);
@@ -242,7 +266,7 @@ function movablePoints(id,list){
     for(let k=0;k<temp2.length;k++){
         if(list.indexOf(temp2[k])!=-1){
             if(playerbetween(id,temp2[k])!=''){ //check if the player in betweem is opponent or same player
-            movelst.push(temp2[k]);//to check this condition you need to check get the id[1]
+            movelst.push(temp2[k]);//to check this condition you need to check get the id1
         }
         }
     }
@@ -277,7 +301,6 @@ no flaw in the function below, parameters decide their results
     atrributeRemover()      removes the onclick atrribute from respective beads
     checkMoveType()         return true if normal moves else false
     passId() & passId2()    these functions drives the whole program
-        ##################THESE FUNCTIONS HAVE SOME FLAWS#####################
     movablePoints()         returns an array of moves on clicking a bead when a players chance comes
     playermovableBeads()    returns an array of movable beads of a player
     playerbetween()         checks whether a bead in between is two beads is opponents bead or same
@@ -290,12 +313,15 @@ function beadsUpdate(id1,id2,id3,movetype){
          beads[id2[1]][id2[2]]=vala;
      }
      else{
+        let valb=beads[id3[1]][id3[2]];
         beads[id1[1]][id1[2]]=0;
         beads[id3[1]][id3[2]]=0;
         beads[id2[1]][id2[2]]=vala;
+        return valb;
      }
-    
 }
+
+
 /********************************************/
 //beads color updating function
 
@@ -380,69 +406,77 @@ function removeHighlight(hlist){
 }
 }
 function playerbetween(id1,id2){
-        let row1=parseInt(id1[1]),row2=parseInt(id2[1]),col1=parseInt(id1[2]),col2=parseInt(id2[2]),bead=beads[parseInt(id1[1])][parseInt(id1[2])];
+        //console.log(id1,id2);
+        let bead;
+        if(beads[parseInt(id1[1])][parseInt(id1[2])]==1)
+        bead=2;
+        if(beads[parseInt(id1[1])][parseInt(id1[2])]==2)
+        bead=1;
+        let row1=parseInt(id1[1]),row2=parseInt(id2[1]),col1=parseInt(id1[2]),col2=parseInt(id2[2]);
         let r1=row1-1,r2=row1+1,c1=col1-1,c2=col1+1,c3=col2;
         if(row2>=2&&row2<=6){
            
             if(row1!=row2){
                 if(col1>col2){//left
-                    if(row1>row2){
-                        if(beads[row1-1][col1-1]!=bead)
+                    if(row1>row2 && beads[row1-1][col1-1]==bead){
                         return "p"+r1+c1;
                     }
-                    if(row1<row2){
-                        if(beads[row1+1][col1-1]!=bead)
+                    if(row1<row2 && beads[row1+1][col1-1]==bead){
                         return "p"+r2+c1;
                     }
                 }
-                else if(col1<col2){//right
-                    if(row1>row2){
-                        if(beads[row1-1][col1+1]!=bead)
+                if(col1<col2){//right
+                    if(row1>row2 && beads[row1-1][col1+1]==bead){//top
                         return "p"+r1+c2;
                     }
-                    if(row1<row2){
-                        if(beads[row1+1][col1+1]!=bead)
+                    if(row1<row2 && beads[row1+1][col1+1]==bead){
                         return "p"+r2+c2;
                     }
                 }
-                
-                }
-               if(col1==col2){//same column
-                    if(row1>row2 && beads[row1-1][col2]!=bead)
+
+                if(col1==col2){//same column
+                    if(row1>row2 && beads[row1-1][col2]==bead)
                        return "p"+r1+c3;
-                    if(row1<row2 && beads[row1+1][col2]!=bead)
+                    if(row1<row2 && beads[row1+1][col2]==bead)
                         return "p"+r2+c3;
                 }
-        }
-        else if(row1==row2){
-            if(col1>col2){//left
-                if(beads[row1][col1-1]!=bead)
-                return "p"+row1+c1;
-            }
-            else{
-                if(beads[row1][col1+1]!=bead)
-                return 'p'+row1+c2;
-            }
+                }
+
+            if(row1==row2){
+                    if(col1>col2 && beads[row1][col1-1]==bead){//left
+                        return "p"+row1+c1;
+                    }
+                    if(col1<col2 && beads[row1][col1+1]==bead)
+                        return 'p'+row1+c2;
+                }
         }
 
+
         else{
-            if(row1>2){
-                if(id1=='p31'||id1=='p32',id1=='p33'){
-                    if(beads[2][2]!=bead)
-                    return 'p'+2+2;
+
+            if(row1==row2){
+                if(col1>col2 && beads[row1][col1-1]==bead){//left
+                    return "p"+row1+c1;
+                }
+                if(col1<col2 && beads[row1][col1+1]==bead)
+                    return 'p'+row1+c2;
+            }
+
+            if(row2>2){
+                if((id1=='p31'|| id1=='p32'|| id1=='p33') && beads[2][2]==bead){
+                    return 'p22';
                 }
             }
-            if(row1<6){
-                if(id1=='p51'||id1=='p52',id1=='p53'){
-                    if(beads[6][2]!=bead)
-                    return 'p'+6+2;
+            if(row2<6){
+                if((id1=='p51'||id1=='p52'|| id1=='p53') && beads[6][2]==bead){
+                    return 'p62';
                 }
             }
             if(id1=="p22"){
-               if(id2=='p00' && beads[1][0]!=bead){
+               if(id2=='p00' && beads[1][0]==bead){
                 return 'p10';
                }
-               if(id2=='p01' && beads[1][1]!=bead){
+               if(id2=='p01' && beads[1][1]==bead){
                 return 'p11';
                }
                else{
@@ -450,62 +484,51 @@ function playerbetween(id1,id2){
                }
             }
             if(id1=="p62"){
-                if(id2=='p80' && beads[7][0]!=bead){
+                if(id2=='p80' && beads[7][0]==bead){
                     return 'p70';
                 }
-                if(id2=='p81' && beads[7][1]!=bead){
+                if(id2=='p81' && beads[7][1]==bead){
                     return 'p71';
                 }
-                else{
+                if(id2=='p82'){
                     return 'p72';
                 }
              }
-             if(id1=='p80'){
-                 if(beads[7][0]!=bead)
+
+             if(id1=='p80' && beads[7][0]==bead){
                  return 'p70';
              }
-             if(id1=='p81'){
-                if(beads[7][1]!=bead)
+             if(id1=='p81' && beads[7][1]==bead){
                 return 'p71';
              }
-             if(id1=='p80'){
-                if(beads[7][2]!=bead)
+             if(id1=='p82' && beads[7][2]==bead){
                 return 'p72';
              }
-             if(id1=='p00'){
-                if(beads[1][0]!=bead)
-                return true;
+             if(id1=='p00' && beads[1][0]==bead){
+                return 'p10';
             }
-            if(id1=='p01'){
-               if(beads[1][1]!=bead)
+            if(id1=='p01' && beads[1][1]==bead){
                return 'p11';
             }
-            if(id1=='p02'){
-               if(beads[1][2]!=bead)
+            if(id1=='p02' && beads[1][2]==bead){
                return 'p12';
             }
-            if(id1=='p10'){
-                if(beads[2][2]!=bead)
+            if(id1=='p10' && beads[2][2]==bead){
                 return 'p22';
             }
-            if(id1=='p11'){
-               if(beads[2][2]!=bead)
+            if(id1=='p11' && beads[2][2]==bead){
                return 'p22';
             }
-            if(id1=='p12'){
-               if(beads[2][2]!=bead)
+            if(id1=='p12' && beads[2][2]==bead){
                return 'p22';
             }
-            if(id1=='p70'){
-                if(beads[6][2]!=bead)
+            if(id1=='p70' && beads[6][2]==bead){
                 return 'p62';
             }
-            if(id1=='p71'){
-               if(beads[6][2]!=bead)
+            if(id1=='p71' && beads[6][2]==bead){
                return 'p62';
             }
-            if(id1=='p72'){
-               if(beads[6][2]!=bead)
+            if(id1=='p72' && beads[6][2]==bead){
                return 'p62';
             }
     }
@@ -549,3 +572,155 @@ function atrributeRemover(element){
         document.getElementById(element[i]).removeAttribute("onclick");
     }
 }
+
+function checkDoublePoint(){
+    let lst=pointMoves[id2],z=checkDesiredPoints(0),rlist=[];
+    for(let i=0;i<lst.length;i++){
+        if(z.indexOf(lst[i])!=-1){
+            if(playerbetween(id2,lst[i])!="")
+            rlist.push(list[i]);
+        }
+    }
+    return rlist;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var canvas = document.querySelector('canvas');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+// canvas.setAttribute('width', window.innerWidth);
+// canvas.setAttribute('height', window.innerHeight);
+
+var c = canvas.getContext('2d');
+
+// c.fillStyle = 'rgba(255,0,0,0.1)';
+// c.fillRect(100, 100, 100, 100);
+// c.fillStyle = 'rgba(0,0,255,0.1)';
+// c.fillRect(200, 200, 100, 100);
+// c.fillRect(300, 300, 100, 100);
+// c.fillRect(400, 400, 100, 100);
+// console.log(canvas);
+
+//line
+
+
+
+//Arc //Circle
+
+
+// for (var i = 0; i < 2000; i++) {
+//     var x = Math.random() * window.innerHeight *5;
+//     var y = Math.random() * window.innerWidth;
+//     var color = Math.random();
+//     c.beginPath();
+//     c.arc(x, y, 50, 0, Math.PI * 2, false);
+
+//     c.strokeStyle = `rgba(${y},${x*y/10000},${x},1)`;
+//     c.stroke();
+
+// }
+
+var mouse = {
+    x: undefined,
+    y: undefined
+}
+
+
+var colorArray = [ "white"];
+// window.addEventListener('');
+
+
+
+
+window.addEventListener('mousemove', function (event) {
+    mouse.x = event.x;
+    mouse.y = event.y;
+
+});
+
+class Circle {
+    constructor(x, y, dx, dy, radius) {
+        this.x = x;
+        this.y = y;
+        this.dx = dx;
+        this.dy = dy;
+        this.radius = radius;
+        this.draw = function () {
+            c.beginPath();
+            c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+            c.strokeStyle = `${colorArray[Math.floor(Math.random() * colorArray.length)]}`;
+            //c.fill = colorArray[Math.floor(Math.random() * colorArray.length)];
+            //c.fillStyle(colorArray[Math.floor(Math.random() * colorArray.length)]);
+            c.fill = colorArray[Math.floor(Math.random() * colorArray.length)];
+            
+            c.stroke();
+        };
+        this.update = function () {
+
+            if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+                this.dx = -this.dx;
+            }
+            if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
+                this.dy = -this.dy;
+            }
+            this.x += this.dx;
+            this.y += this.dy;
+            //interactivity
+
+            if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
+                if (this.radius < 40) {
+                    this.radius += 1;
+                }
+            }
+            else if (this.radius > 2) {
+                this.radius -= 1;
+            }
+            this.draw();
+        };
+    }
+}
+
+
+var circleArray = [];
+for (let i = 0; i < 500; i++) {
+    var radius = 90;
+    var x = Math.random() * (innerWidth - radius * 2) + radius;
+    var y = Math.random() * (innerHeight - radius * 2) + radius;
+    var dx = (Math.random() - 0.5);
+    var dy = (Math.random() - 0.5);
+    circleArray.push(new Circle(x, y, dx, dy, radius));
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    setTimeout(1000);
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    for (var i = 0; i < circleArray.length; i++) {
+        circleArray[i].update();
+    }
+}
+
+animate();
+//console.log(circleArray);
+c.beginPath();
+
+c.fillText("Hey Three",250,250);
+c.strokeStyle = "Red";
+c.stroke();
