@@ -1,3 +1,32 @@
+/**************************************************************
+no flaw in the function below, parameters decide their results, except #
+
+    beadsUpdate()           update the beads value {0 or 1 or 2}
+    beadChange()            changes the color from the beads 2D array 
+                                0 -no color
+                                1 -green
+                                2 -red
+    playerShadow()          makes a shadows of the player in the dashboard
+    removeplayerShadow()    removes a shadows of the player in the dashboard
+    makeShadow()            highlights the players movable beads
+    removeShadow()          removes highlights players movable beads
+    highLight()             highlights the movable points when user clicks on the beads
+    removHighlight()        removes highlight from the above points
+    getId()/getId2()        return the id and simultaneously calls the respective passId() functions 
+                            that drives the programs
+    atrributeAdder1()&2()   adds onclick atrribute to beads passed in them using parameter
+    atrributeRemover()      removes the onclick atrribute from respective beads
+    checkMoveType()         return true if normal moves else false
+    passId() & passId2()    these functions drives the whole program
+    movablePoints()         returns an array of moves on clicking a bead when a players chance comes
+    playermovableBeads()    returns an array of movable beads of a player
+   #playerbetween()         checks whether a bead in between is two beads is opponents bead or same
+                            bead returns coordinate if opponents bead in between else returns an empty string
+   $gameover()
+   $doublekill()
+             #bugs    $yet to make
+***************************************************************/
+
 /******************2D ARRAY OF BEADS*************************/
 var beads=[
               [1,1,1],
@@ -281,31 +310,7 @@ function checkMoveType(id1,id2){
     return true;
     return false;
 }
-/**************************************************************
-no flaw in the function below, parameters decide their results
 
-    beadsUpdate()           update the beads value {0 or 1 or 2}
-    beadChange()            changes the color from the beads 2D array 
-                                0 -no color
-                                1 -green
-                                2 -red
-    playerShadow()          makes a shadows of the player in the dashboard
-    removeplayerShadow()    removes a shadows of the player in the dashboard
-    makeShadow()            highlights the players movable beads
-    removeShadow()          removes highlights players movable beads
-    highLight()             highlights the movable points when user clicks on the beads
-    removHighlight()        removes highlight from the above points
-    getId()/getId2()        return the id and simultaneously calls the respective passId() functions 
-                            that drives the programs
-    atrributeAdder1()&2()   adds onclick atrribute to beads passed in them using parameter
-    atrributeRemover()      removes the onclick atrribute from respective beads
-    checkMoveType()         return true if normal moves else false
-    passId() & passId2()    these functions drives the whole program
-    movablePoints()         returns an array of moves on clicking a bead when a players chance comes
-    playermovableBeads()    returns an array of movable beads of a player
-    playerbetween()         checks whether a bead in between is two beads is opponents bead or same
-                            bead returns coordinate if opponents bead in between else returns an empty string   
-***************************************************************/
 function beadsUpdate(id1,id2,id3,movetype){
     let vala=beads[id1[1]][id1[2]];
      if(movetype==true){
@@ -584,58 +589,13 @@ function checkDoublePoint(){
     return rlist;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var canvas = document.querySelector('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-// canvas.setAttribute('width', window.innerWidth);
-// canvas.setAttribute('height', window.innerHeight);
 
 var c = canvas.getContext('2d');
 
-// c.fillStyle = 'rgba(255,0,0,0.1)';
-// c.fillRect(100, 100, 100, 100);
-// c.fillStyle = 'rgba(0,0,255,0.1)';
-// c.fillRect(200, 200, 100, 100);
-// c.fillRect(300, 300, 100, 100);
-// c.fillRect(400, 400, 100, 100);
-// console.log(canvas);
 
-//line
-
-
-
-//Arc //Circle
-
-
-// for (var i = 0; i < 2000; i++) {
-//     var x = Math.random() * window.innerHeight *5;
-//     var y = Math.random() * window.innerWidth;
-//     var color = Math.random();
-//     c.beginPath();
-//     c.arc(x, y, 50, 0, Math.PI * 2, false);
-
-//     c.strokeStyle = `rgba(${y},${x*y/10000},${x},1)`;
-//     c.stroke();
-
-// }
 
 var mouse = {
     x: undefined,
@@ -666,8 +626,6 @@ class Circle {
             c.beginPath();
             c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
             c.strokeStyle = `${colorArray[Math.floor(Math.random() * colorArray.length)]}`;
-            //c.fill = colorArray[Math.floor(Math.random() * colorArray.length)];
-            //c.fillStyle(colorArray[Math.floor(Math.random() * colorArray.length)]);
             c.fill = colorArray[Math.floor(Math.random() * colorArray.length)];
             
             c.stroke();
