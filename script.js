@@ -133,7 +133,8 @@ let listHlt;
 
 /*******************WHEN A USER CLICKS START BUTTON function below will run first and only one time*******/
 function start(player1){
-var person1 = prompt("Please enter Player 1 Name", "Ankit");
+
+    var person1 = prompt("Please enter Player 1 Name", "Ankit");
   if (person1 != null) {
     document.getElementById("p1").innerHTML =person1;
   }
@@ -142,40 +143,70 @@ var person1 = prompt("Please enter Player 1 Name", "Ankit");
   if (person2 != null) {
     document.getElementById("p2").innerHTML =person2;
   }
+
     if(player1){
         beadChange();
-        let listForShadow=playermovablebeads(1);
+        listForShadow=playermovablebeads(1);
         makeShadow(listForShadow);//shadow giving function
         playerShadow(1);
         atrributeAdder(listForShadow);
     }
 }
-
-/*****************BEAD SELECTED BY A USE WILL RETURN AN ID AND THAT ID IS PASSED IN THE FUNCTION BELOW******/
+let h,listForShadow;
+/*****************BEAD SELECTED BY A USER WILL RETURN AN ID AND THAT ID IS PASSED IN THE FUNCTION BELOW******/
 function passId(val){
     id=val;
     
     if(player1){
-        let listForShadow=playermovablebeads(1);
+        //listForShadow=playermovablebeads(1);
         if(usr){
+         if(h!=null){
+             removeHighlight(h);
+             atrributeRemover(h);
+             h=null;
+             h=movablePoints(id);
+             highLight(h);
+             atrributeAdder2(h);
+         }
+         else{
+             h=movablePoints(id);
+             highLight(h);
+             atrributeAdder2(h);
+         }
+
         usr=false;
-        removeShadow(listForShadow);//remove shadow
-        atrributeRemover(listForShadow);
-        listHlt=movablePoints(id);//list of highlightable points 
+        //removeShadow(listForShadow);//remove shadow
+        //atrributeRemover(listForShadow);
+        //listHlt=movablePoints(id);//list of highlightable points 
         //console.log(listHlt);
-        highLight(listHlt);//highlighting movable points
-        atrributeAdder2(listHlt);         
+        //highLight(listHlt);//highlighting movable points
+        //atrributeAdder2(listHlt);         
         }
     }
     else{
         if(usr){
+            if(h!=null){
+                removeHighlight(h);
+                atrributeRemover(h);
+                h=null;
+                h=movablePoints(id);
+                highLight(h);
+                atrributeAdder2(h);
+            }
+            else{
+                h=movablePoints(id);
+                highLight(h);
+                atrributeAdder2(h);
+            }
+
+
             usr=false;
-            let listForShadow=playermovablebeads(2);
-            removeShadow(listForShadow);
-            atrributeRemover(listForShadow);
-            listHlt=movablePoints(id);//list of highlightable points 
-            highLight(listHlt);//highlighting movable points
-            atrributeAdder2(listHlt);
+            //listForShadow=playermovablebeads(2);
+            //removeShadow(listForShadow);
+            //atrributeRemover(listForShadow);
+            //listHlt=movablePoints(id);//list of highlightable points 
+            //highLight(listHlt);//highlighting movable points
+            //atrributeAdder2(listHlt);
         }
     }
 }
@@ -187,7 +218,13 @@ function passId2(val){
     let score;
     //let listHlt=playermovablebeads(id,list);//list of highlightable points 
     if(usr2){
-        atrributeRemover(movablePoints(id));
+        /*if(checkDoublePoint()!=null){                         
+            removeHighlight(checkDoublePoint());             
+            atrributeRemover(checkDoublePoint());
+        }*/
+        removeHighlight(movablePoints(id));
+        removeShadow(listForShadow);
+        atrributeRemover(h);
         usr2=false;
              let moveType=checkMoveType(id,id2); //boolean return type function true for normal move false for point move
              if(moveType){
@@ -197,18 +234,24 @@ function passId2(val){
              else{
                  let id3= playerbetween(id,id2);// search for removed bead
                  //beadsUpdate(id,id2,id3,moveType);
-                 score=beadsUpdate(id,id2,id3,moveType);Score(score);
+                 score=beadsUpdate(id,id2,id3,moveType);
+                 Score(score);
+                 
                  //console.log(score);
              }
             beadChange();
-            removeHighlight(listHlt);
+            //removeHighlight(listHlt);
             //updateScore(player);  //update the score of the player *******tbm
         }
-        if(player1){
+        if(player1){/*
+            if(checkDoublePoint()!=null){
+                id=id2;
+                atrributeAdder2(checkDesiredPoints());
+            }*/
             removeplayerShadow(1);
             playerShadow(2);
-            let list=checkDesiredPoints(0);
-            let listForShadow=playermovablebeads(2);
+            //let list=checkDesiredPoints(0);
+            listForShadow=playermovablebeads(2);
             makeShadow(listForShadow);
             atrributeAdder(listForShadow);
             player1=false;
@@ -218,8 +261,8 @@ function passId2(val){
             player1=true;
             removeplayerShadow(2);
             playerShadow(1);
-            let list=checkDesiredPoints(0);
-            let listForShadow=playermovablebeads(1);
+            //let list=checkDesiredPoints(0);
+            listForShadow=playermovablebeads(1);
             makeShadow(listForShadow);
             atrributeAdder(listForShadow);
         }
@@ -587,10 +630,10 @@ function atrributeRemover(element){
 }
 
 function checkDoublePoint(){
-    let lst=pointMoves[id2],z=checkDesiredPoints(0),rlist=[];
+    let lst=movablePoints(id2),rlist=null;
+    let lst2=pointMoves[id2];
     for(let i=0;i<lst.length;i++){
-        if(z.indexOf(lst[i])!=-1){
-            if(playerbetween(id2,lst[i])!="")
+        if(lst2.indexOf(lst[i])!=-1){
             rlist.push(list[i]);
         }
     }
