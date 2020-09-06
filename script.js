@@ -173,14 +173,7 @@ function passId(val){
              highLight(h);
              atrributeAdder2(h);
          }
-
-        usr=false;
-        //removeShadow(listForShadow);//remove shadow
-        //atrributeRemover(listForShadow);
-        //listHlt=movablePoints(id);//list of highlightable points 
-        //console.log(listHlt);
-        //highLight(listHlt);//highlighting movable points
-        //atrributeAdder2(listHlt);         
+        usr=false;      
         }
     }
     else{
@@ -201,12 +194,6 @@ function passId(val){
 
 
             usr=false;
-            //listForShadow=playermovablebeads(2);
-            //removeShadow(listForShadow);
-            //atrributeRemover(listForShadow);
-            //listHlt=movablePoints(id);//list of highlightable points 
-            //highLight(listHlt);//highlighting movable points
-            //atrributeAdder2(listHlt);
         }
     }
 }
@@ -218,10 +205,16 @@ function passId2(val){
     let score;
     //let listHlt=playermovablebeads(id,list);//list of highlightable points 
     if(usr2){
-        /*if(checkDoublePoint()!=null){                         
-            removeHighlight(checkDoublePoint());             
+        if(checkDoublePoint().length!=0 && checkMoveType(id,id2)!=true){
+            removeHighlight(checkDoublePoint());
             atrributeRemover(checkDoublePoint());
-        }*/
+            let moveType=checkMoveType(id,id2);
+            let id3= playerbetween(id,id2);// search for removed bead
+                 //beadsUpdate(id,id2,id3,moveType);
+                 score=beadsUpdate(id,id2,id3,moveType);
+                 Score(score);
+        }
+        else{
         removeHighlight(movablePoints(id));
         removeShadow(listForShadow);
         atrributeRemover(h);
@@ -239,15 +232,18 @@ function passId2(val){
                  
                  //console.log(score);
              }
+        }
             beadChange();
             //removeHighlight(listHlt);
             //updateScore(player);  //update the score of the player *******tbm
         }
-        if(player1){/*
-            if(checkDoublePoint()!=null){
+        if(player1){
+            if(checkDoublePoint().length!=0 && checkMoveType(id,id2)!=true){
                 id=id2;
-                atrributeAdder2(checkDesiredPoints());
-            }*/
+                highLight(checkDoublePoint());
+                atrributeAdder2(checkDoublePoint());
+            }
+            else{
             removeplayerShadow(1);
             playerShadow(2);
             //let list=checkDesiredPoints(0);
@@ -255,9 +251,16 @@ function passId2(val){
             makeShadow(listForShadow);
             atrributeAdder(listForShadow);
             player1=false;
+            }
         }
         
         else{
+            if(checkDoublePoint().length!=0 && checkMoveType(id,id2)!=true){
+                id=id2;
+                atrributeAdder2(checkDoublePoint());
+                highLight(checkDoublePoint());
+            }
+            else{
             player1=true;
             removeplayerShadow(2);
             playerShadow(1);
@@ -265,6 +268,7 @@ function passId2(val){
             listForShadow=playermovablebeads(1);
             makeShadow(listForShadow);
             atrributeAdder(listForShadow);
+            }
         }
         
         
@@ -630,13 +634,14 @@ function atrributeRemover(element){
 }
 
 function checkDoublePoint(){
-    let lst=movablePoints(id2),rlist=null;
+    let lst=movablePoints(id2),rlist=[];
     let lst2=pointMoves[id2];
     for(let i=0;i<lst.length;i++){
         if(lst2.indexOf(lst[i])!=-1){
-            rlist.push(list[i]);
+            rlist.push(lst[i]);
         }
     }
+    console.log(rlist);
     return rlist;
 }
 
